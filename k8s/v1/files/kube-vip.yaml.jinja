@@ -29,7 +29,7 @@ spec:
       value: "3"
     - name: vip_retryperiod
       value: "1"
-    - name: vip_address
+    - name: address
       value: {{ salt['pillar.get']("k8s:networking:vip") }}
     image: ghcr.io/kube-vip/kube-vip:v0.8.0
     imagePullPolicy: Always
@@ -41,7 +41,7 @@ spec:
         - NET_ADMIN
         - NET_RAW
     volumeMounts:
-    - mountPath: /etc/kubernetes/super-admin.conf
+    - mountPath: /etc/kubernetes/admin.conf
       name: kubeconfig
   hostAliases:
   - hostnames:
