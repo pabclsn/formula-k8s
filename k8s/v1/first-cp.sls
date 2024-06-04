@@ -88,8 +88,6 @@ install cilium via helm:
       - k8sServicePort=6443
     - require:
       - helm: cilium_repo
-    - unless:
-      - helm -n kube-system get manifest cilium >/dev/null 2>&1
 
 {% endif %}
 
