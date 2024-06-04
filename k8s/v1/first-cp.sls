@@ -70,6 +70,7 @@ install cilium via helm:
         version: {{ salt['pillar.get']('k8s:cni:version', '1.12.4') }}
     - set:
       - tunnel=disabled
+      - routingMode=true
       - ipam.mode=kubernetes
       - ipv4NativeRoutingCIDR={{ salt['pillar.get']('k8s:networking:podSubnet:v4') }}
 {%- if salt['pillar.get']('k8s:networking:podSubnet:v6') %}
